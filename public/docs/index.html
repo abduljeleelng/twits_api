@@ -1,0 +1,2403 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Twits Application</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+    <script src="../docs/js/theme-default-3.8.0.js"></script>
+
+    <link rel="stylesheet"
+          href="//unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script src="//cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script>
+        var baseUrl = "https://unglobal.ng/expense/betal/api";
+    </script>
+    <script src="../docs/js/tryitout-3.8.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;,&quot;python&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+      </span>
+</a>
+<div class="tocify-wrapper">
+                <div class="lang-selector">
+                            <a href="#" data-language-name="bash">bash</a>
+                            <a href="#" data-language-name="javascript">javascript</a>
+                            <a href="#" data-language-name="php">php</a>
+                            <a href="#" data-language-name="python">python</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+            <ul class="toc-footer" id="last-updated">
+            <li>Last updated: August 17 2021</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introduction</h1>
+<p>documentation for the Twits API</p>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://127.0.0.1:8000</code></pre>
+
+        <h1>Authenticating requests</h1>
+<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {token}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by login with your email and password,  <b>token will come along with your details</b>.</p>
+
+        <h1 id="auth-user-management">Auth User management</h1>
+
+    <p>APIs for authenticating users</p>
+
+            <h2 id="auth-user-management-POSTapi-auth-signup">POST api/auth/signup</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-signup">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/auth/signup" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"walker.izabella@example.org\",
+    \"password\": \"vizihb\",
+    \"password_confirmation\": \"aliquid\"
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/auth/signup"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "walker.izabella@example.org",
+    "password": "vizihb",
+    "password_confirmation": "aliquid"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/auth/signup',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'walker.izabella@example.org',
+            'password' =&gt; 'vizihb',
+            'password_confirmation' =&gt; 'aliquid',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/auth/signup'
+payload = {
+    "email": "walker.izabella@example.org",
+    "password": "vizihb",
+    "password_confirmation": "aliquid"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-auth-signup">
+            <blockquote>
+            <p>Example response (409):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;The password confirmation does not match.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-signup" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-signup"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-signup"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-signup" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-signup"></code></pre>
+</span>
+<form id="form-POSTapi-auth-signup" data-method="POST"
+      data-path="api/auth/signup"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-signup', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-signup"
+                    onclick="tryItOut('POSTapi-auth-signup');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-signup"
+                    onclick="cancelTryOut('POSTapi-auth-signup');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-signup" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/signup</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-signup"
+               data-component="body" required  hidden>
+    <br>
+<p>Must be a valid email address.</p>        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-signup"
+               data-component="body" required  hidden>
+    <br>
+<p>Must be at least 6 characters.</p>        </p>
+                <p>
+            <b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password_confirmation"
+               data-endpoint="POSTapi-auth-signup"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="auth-user-management-POSTapi-auth-activate">POST api/auth/activate</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-activate">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/auth/activate" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"activationCode\": \"mollitia\"
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/auth/activate"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "activationCode": "mollitia"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/auth/activate',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'activationCode' =&gt; 'mollitia',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/auth/activate'
+payload = {
+    "activationCode": "mollitia"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-auth-activate">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;wrong activation code or Invalid link&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-activate" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-activate"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-activate"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-activate" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-activate"></code></pre>
+</span>
+<form id="form-POSTapi-auth-activate" data-method="POST"
+      data-path="api/auth/activate"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-activate', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-activate"
+                    onclick="tryItOut('POSTapi-auth-activate');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-activate"
+                    onclick="cancelTryOut('POSTapi-auth-activate');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-activate" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/activate</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>activationCode</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="activationCode"
+               data-endpoint="POSTapi-auth-activate"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="auth-user-management-POSTapi-auth-signin">POST api/auth/signin</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-signin">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/auth/signin" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"animi\",
+    \"password\": \"quod\"
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/auth/signin"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "animi",
+    "password": "quod"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/auth/signin',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'animi',
+            'password' =&gt; 'quod',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/auth/signin'
+payload = {
+    "email": "animi",
+    "password": "quod"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-auth-signin">
+            <blockquote>
+            <p>Example response (409):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;The email must be a valid email address.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-signin" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-signin"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-signin"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-signin" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-signin"></code></pre>
+</span>
+<form id="form-POSTapi-auth-signin" data-method="POST"
+      data-path="api/auth/signin"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-signin', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-signin"
+                    onclick="tryItOut('POSTapi-auth-signin');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-signin"
+                    onclick="cancelTryOut('POSTapi-auth-signin');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-signin" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/signin</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-signin"
+               data-component="body" required  hidden>
+    <br>
+<p>Must be a valid email address.</p>        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-signin"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="auth-user-management-POSTapi-auth-forgetPassword">POST api/auth/forgetPassword</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-forgetPassword">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/auth/forgetPassword" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"fugit\"
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/auth/forgetPassword"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "fugit"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/auth/forgetPassword',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'fugit',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/auth/forgetPassword'
+payload = {
+    "email": "fugit"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-auth-forgetPassword">
+            <blockquote>
+            <p>Example response (409):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;The email must be a valid email address.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-forgetPassword" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-forgetPassword"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-forgetPassword"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-forgetPassword" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-forgetPassword"></code></pre>
+</span>
+<form id="form-POSTapi-auth-forgetPassword" data-method="POST"
+      data-path="api/auth/forgetPassword"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-forgetPassword', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-forgetPassword"
+                    onclick="tryItOut('POSTapi-auth-forgetPassword');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-forgetPassword"
+                    onclick="cancelTryOut('POSTapi-auth-forgetPassword');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-forgetPassword" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/forgetPassword</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-forgetPassword"
+               data-component="body" required  hidden>
+    <br>
+<p>Must be a valid email address.</p>        </p>
+    
+    </form>
+
+            <h2 id="auth-user-management-POSTapi-auth-resetPassword">POST api/auth/resetPassword</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-resetPassword">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/auth/resetPassword" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"resetToken\": \"velit\",
+    \"password\": \"ut\",
+    \"password_confirmation\": \"tenetur\"
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/auth/resetPassword"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "resetToken": "velit",
+    "password": "ut",
+    "password_confirmation": "tenetur"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/auth/resetPassword',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'resetToken' =&gt; 'velit',
+            'password' =&gt; 'ut',
+            'password_confirmation' =&gt; 'tenetur',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/auth/resetPassword'
+payload = {
+    "resetToken": "velit",
+    "password": "ut",
+    "password_confirmation": "tenetur"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-auth-resetPassword">
+            <blockquote>
+            <p>Example response (409):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;The password confirmation does not match.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-resetPassword" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-resetPassword"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-resetPassword"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-resetPassword" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-resetPassword"></code></pre>
+</span>
+<form id="form-POSTapi-auth-resetPassword" data-method="POST"
+      data-path="api/auth/resetPassword"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-resetPassword', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-resetPassword"
+                    onclick="tryItOut('POSTapi-auth-resetPassword');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-resetPassword"
+                    onclick="cancelTryOut('POSTapi-auth-resetPassword');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-resetPassword" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/resetPassword</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>resetToken</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="resetToken"
+               data-endpoint="POSTapi-auth-resetPassword"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-resetPassword"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password_confirmation"
+               data-endpoint="POSTapi-auth-resetPassword"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="auth-user-management-POSTapi-auth-signout">POST api/auth/signout</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-signout">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/auth/signout" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/auth/signout"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/auth/signout',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/auth/signout'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-auth-signout">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Token could not be parsed from the request.&quot;,
+    &quot;exception&quot;: &quot;Tymon\\JWTAuth\\Exceptions\\JWTException&quot;,
+    &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\tymon\\jwt-auth\\src\\JWTGuard.php&quot;,
+    &quot;line&quot;: 419,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\tymon\\jwt-auth\\src\\JWTGuard.php&quot;,
+            &quot;line&quot;: 157,
+            &quot;function&quot;: &quot;requireToken&quot;,
+            &quot;class&quot;: &quot;Tymon\\JWTAuth\\JWTGuard&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\auth\\AuthManager.php&quot;,
+            &quot;line&quot;: 332,
+            &quot;function&quot;: &quot;logout&quot;,
+            &quot;class&quot;: &quot;Tymon\\JWTAuth\\JWTGuard&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\app\\Http\\Controllers\\AuthController.php&quot;,
+            &quot;line&quot;: 171,
+            &quot;function&quot;: &quot;__call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Auth\\AuthManager&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;signOut&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Controllers\\AuthController&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\container\\Util.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\container\\Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 386,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 352,
+            &quot;function&quot;: &quot;callControllerCallable&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 326,
+            &quot;function&quot;: &quot;callLumenController&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 279,
+            &quot;function&quot;: &quot;callControllerAction&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 264,
+            &quot;function&quot;: &quot;callActionOnArrayBasedRoute&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 166,
+            &quot;function&quot;: &quot;handleFoundRoute&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
+            &quot;line&quot;: 48,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\app\\Http\\Middleware\\CorsMiddleware.php&quot;,
+            &quot;line&quot;: 30,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\CorsMiddleware&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
+            &quot;line&quot;: 30,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\app\\Http\\Middleware\\ExampleMiddleware.php&quot;,
+            &quot;line&quot;: 18,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\ExampleMiddleware&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
+            &quot;line&quot;: 30,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 423,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 172,
+            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 92,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 296,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 275,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 44,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 34,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 225,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 182,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 118,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 75,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 51,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\container\\Util.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\container\\Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\console\\Command.php&quot;,
+            &quot;line&quot;: 136,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\symfony\\console\\Command\\Command.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\console\\Command.php&quot;,
+            &quot;line&quot;: 121,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 978,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 295,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\illuminate\\console\\Application.php&quot;,
+            &quot;line&quot;: 92,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\php\\twit\\artisan&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-signout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-signout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-signout"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-signout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-signout"></code></pre>
+</span>
+<form id="form-POSTapi-auth-signout" data-method="POST"
+      data-path="api/auth/signout"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-signout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-signout"
+                    onclick="tryItOut('POSTapi-auth-signout');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-signout"
+                    onclick="cancelTryOut('POSTapi-auth-signout');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-signout" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/signout</code></b>
+        </p>
+                    </form>
+
+        <h1 id="likes">Likes</h1>
+
+    <p>APIs for like services</p>
+
+            <h2 id="likes-POSTapi-like">POST api/like</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-like">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/like" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"twits_id\": \"exercitationem\"
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/like"
+);
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "twits_id": "exercitationem"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/like',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {token}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'twits_id' =&gt; 'exercitationem',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/like'
+payload = {
+    "twits_id": "exercitationem"
+}
+headers = {
+  'Authorization': 'Bearer {token}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-like">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Error in the process&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-like" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-like"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-like"></code></pre>
+</span>
+<span id="execution-error-POSTapi-like" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-like"></code></pre>
+</span>
+<form id="form-POSTapi-like" data-method="POST"
+      data-path="api/like"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-like', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-like"
+                    onclick="tryItOut('POSTapi-like');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-like"
+                    onclick="cancelTryOut('POSTapi-like');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-like" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/like</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-like" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-like"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>twits_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="twits_id"
+               data-endpoint="POSTapi-like"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+        <h1 id="twit">Twit</h1>
+
+    <p>APIs for twits services</p>
+
+            <h2 id="twit-POSTapi-twit">POST api/twit</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-twit">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/twit" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"text\": \"gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh\"
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/twit"
+);
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "text": "gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/twit',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {token}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'text' =&gt; 'gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/twit'
+payload = {
+    "text": "gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh"
+}
+headers = {
+  'Authorization': 'Bearer {token}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-twit">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-twit" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-twit"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-twit"></code></pre>
+</span>
+<span id="execution-error-POSTapi-twit" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-twit"></code></pre>
+</span>
+<form id="form-POSTapi-twit" data-method="POST"
+      data-path="api/twit"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-twit', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-twit"
+                    onclick="tryItOut('POSTapi-twit');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-twit"
+                    onclick="cancelTryOut('POSTapi-twit');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-twit" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/twit</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-twit" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-twit"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>text</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="text"
+               data-endpoint="POSTapi-twit"
+               data-component="body" required  hidden>
+    <br>
+<p>Must not be greater than 147 characters.</p>        </p>
+    
+    </form>
+
+            <h2 id="twit-GETapi-twit">GET api/twit</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-twit">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:8000/api/twit" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/twit"
+);
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://127.0.0.1:8000/api/twit',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {token}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/twit'
+headers = {
+  'Authorization': 'Bearer {token}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-twit">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-twit" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-twit"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-twit"></code></pre>
+</span>
+<span id="execution-error-GETapi-twit" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-twit"></code></pre>
+</span>
+<form id="form-GETapi-twit" data-method="GET"
+      data-path="api/twit"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-twit', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-twit"
+                    onclick="tryItOut('GETapi-twit');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-twit"
+                    onclick="cancelTryOut('GETapi-twit');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-twit" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/twit</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-twit" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-twit"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="twit-GETapi-twit--id-">GET api/twit/{id}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-twit--id-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:8000/api/twit/officia" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/twit/officia"
+);
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://127.0.0.1:8000/api/twit/officia',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {token}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/twit/officia'
+headers = {
+  'Authorization': 'Bearer {token}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-twit--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-twit--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-twit--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-twit--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-twit--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-twit--id-"></code></pre>
+</span>
+<form id="form-GETapi-twit--id-" data-method="GET"
+      data-path="api/twit/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-twit--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-twit--id-"
+                    onclick="tryItOut('GETapi-twit--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-twit--id-"
+                    onclick="cancelTryOut('GETapi-twit--id-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-twit--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/twit/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-twit--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-twit--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETapi-twit--id-"
+               data-component="url" required  hidden>
+    <br>
+            </p>
+                    </form>
+
+            <h2 id="twit-DELETEapi-twit--id-">DELETE api/twit/{id}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-twit--id-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request DELETE \
+    "http://127.0.0.1:8000/api/twit/ut" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/twit/ut"
+);
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://127.0.0.1:8000/api/twit/ut',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {token}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/twit/ut'
+headers = {
+  'Authorization': 'Bearer {token}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-DELETEapi-twit--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-twit--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-twit--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-twit--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-twit--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-twit--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-twit--id-" data-method="DELETE"
+      data-path="api/twit/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-twit--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-twit--id-"
+                    onclick="tryItOut('DELETEapi-twit--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-twit--id-"
+                    onclick="cancelTryOut('DELETEapi-twit--id-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-twit--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/twit/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-twit--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-twit--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="DELETEapi-twit--id-"
+               data-component="url" required  hidden>
+    <br>
+            </p>
+                    </form>
+
+            <h2 id="twit-GETapi-twit-user-profile">GET api/twit/user/profile</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-twit-user-profile">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:8000/api/twit/user/profile" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/twit/user/profile"
+);
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://127.0.0.1:8000/api/twit/user/profile',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {token}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/twit/user/profile'
+headers = {
+  'Authorization': 'Bearer {token}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-twit-user-profile">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-twit-user-profile" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-twit-user-profile"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-twit-user-profile"></code></pre>
+</span>
+<span id="execution-error-GETapi-twit-user-profile" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-twit-user-profile"></code></pre>
+</span>
+<form id="form-GETapi-twit-user-profile" data-method="GET"
+      data-path="api/twit/user/profile"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-twit-user-profile', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-twit-user-profile"
+                    onclick="tryItOut('GETapi-twit-user-profile');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-twit-user-profile"
+                    onclick="cancelTryOut('GETapi-twit-user-profile');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-twit-user-profile" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/twit/user/profile</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-twit-user-profile" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-twit-user-profile"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+        <h1 id="comment">comment</h1>
+
+    <p>APIs for twits comment services</p>
+
+            <h2 id="comment-POSTapi-comment">POST api/comment</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-comment">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/comment" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"text\": \"zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb\",
+    \"twits_id\": \"aut\"
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/comment"
+);
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "text": "zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb",
+    "twits_id": "aut"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/comment',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {token}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'text' =&gt; 'zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb',
+            'twits_id' =&gt; 'aut',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://127.0.0.1:8000/api/comment'
+payload = {
+    "text": "zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb",
+    "twits_id": "aut"
+}
+headers = {
+  'Authorization': 'Bearer {token}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-comment">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+access-control-allow-methods: POST, GET, OPTIONS, PUT, DELETE
+access-control-allow-credentials: true
+access-control-max-age: 86400
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-comment" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-comment"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-comment"></code></pre>
+</span>
+<span id="execution-error-POSTapi-comment" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-comment"></code></pre>
+</span>
+<form id="form-POSTapi-comment" data-method="POST"
+      data-path="api/comment"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-comment', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-comment"
+                    onclick="tryItOut('POSTapi-comment');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-comment"
+                    onclick="cancelTryOut('POSTapi-comment');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-comment" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/comment</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-comment" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-comment"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>text</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="text"
+               data-endpoint="POSTapi-comment"
+               data-component="body" required  hidden>
+    <br>
+<p>Must not be greater than 147 characters.</p>        </p>
+                <p>
+            <b><code>twits_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="twits_id"
+               data-endpoint="POSTapi-comment"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                                    <a href="#" data-language-name="php">php</a>
+                                    <a href="#" data-language-name="python">python</a>
+                            </div>
+            </div>
+</div>
+<script>
+    $(function () {
+        var exampleLanguages = ["bash","javascript","php","python"];
+        setupLanguages(exampleLanguages);
+    });
+</script>
+</body>
+</html>

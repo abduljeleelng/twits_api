@@ -1,0 +1,598 @@
+name: 'Auth User management'
+description: |-
+
+  APIs for authenticating users
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/signup
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: walker.izabella@example.org
+        type: string
+      password:
+        name: password
+        description: 'Must be at least 6 characters.'
+        required: true
+        example: vizihb
+        type: string
+      password_confirmation:
+        name: password_confirmation
+        description: ''
+        required: true
+        example: aliquid
+        type: string
+    responses:
+      -
+        status: 409
+        content: '{"error":"The password confirmation does not match."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE'
+          access-control-allow-credentials: 'true'
+          access-control-max-age: '86400'
+          access-control-allow-headers: 'Content-Type, Authorization, X-Requested-With'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/activate
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      activationCode:
+        name: activationCode
+        description: ''
+        required: true
+        example: mollitia
+        type: string
+    responses:
+      -
+        status: 404
+        content: '{"error":"wrong activation code or Invalid link"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE'
+          access-control-allow-credentials: 'true'
+          access-control-max-age: '86400'
+          access-control-allow-headers: 'Content-Type, Authorization, X-Requested-With'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/signin
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: animi
+        type: string
+      password:
+        name: password
+        description: ''
+        required: true
+        example: quod
+        type: string
+    responses:
+      -
+        status: 409
+        content: '{"error":"The email must be a valid email address."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE'
+          access-control-allow-credentials: 'true'
+          access-control-max-age: '86400'
+          access-control-allow-headers: 'Content-Type, Authorization, X-Requested-With'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/forgetPassword
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: fugit
+        type: string
+    responses:
+      -
+        status: 409
+        content: '{"error":"The email must be a valid email address."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE'
+          access-control-allow-credentials: 'true'
+          access-control-max-age: '86400'
+          access-control-allow-headers: 'Content-Type, Authorization, X-Requested-With'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/resetPassword
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      resetToken:
+        name: resetToken
+        description: ''
+        required: true
+        example: velit
+        type: string
+      password:
+        name: password
+        description: ''
+        required: true
+        example: ut
+        type: string
+      password_confirmation:
+        name: password_confirmation
+        description: ''
+        required: true
+        example: tenetur
+        type: string
+    responses:
+      -
+        status: 409
+        content: '{"error":"The password confirmation does not match."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE'
+          access-control-allow-credentials: 'true'
+          access-control-max-age: '86400'
+          access-control-allow-headers: 'Content-Type, Authorization, X-Requested-With'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/signout
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Token could not be parsed from the request.",
+              "exception": "Tymon\\JWTAuth\\Exceptions\\JWTException",
+              "file": "C:\\php\\twit\\vendor\\tymon\\jwt-auth\\src\\JWTGuard.php",
+              "line": 419,
+              "trace": [
+                  {
+                      "file": "C:\\php\\twit\\vendor\\tymon\\jwt-auth\\src\\JWTGuard.php",
+                      "line": 157,
+                      "function": "requireToken",
+                      "class": "Tymon\\JWTAuth\\JWTGuard",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\auth\\AuthManager.php",
+                      "line": 332,
+                      "function": "logout",
+                      "class": "Tymon\\JWTAuth\\JWTGuard",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\app\\Http\\Controllers\\AuthController.php",
+                      "line": 171,
+                      "function": "__call",
+                      "class": "Illuminate\\Auth\\AuthManager",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 36,
+                      "function": "signOut",
+                      "class": "App\\Http\\Controllers\\AuthController",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\container\\Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\container\\Container.php",
+                      "line": 651,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 386,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 352,
+                      "function": "callControllerCallable",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 326,
+                      "function": "callLumenController",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 279,
+                      "function": "callControllerAction",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 264,
+                      "function": "callActionOnArrayBasedRoute",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 166,
+                      "function": "handleFoundRoute",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php",
+                      "line": 48,
+                      "function": "Laravel\\Lumen\\Concerns\\{closure}",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\app\\Http\\Middleware\\CorsMiddleware.php",
+                      "line": 30,
+                      "function": "Laravel\\Lumen\\Routing\\{closure}",
+                      "class": "Laravel\\Lumen\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\pipeline\\Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\CorsMiddleware",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php",
+                      "line": 30,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\app\\Http\\Middleware\\ExampleMiddleware.php",
+                      "line": 18,
+                      "function": "Laravel\\Lumen\\Routing\\{closure}",
+                      "class": "Laravel\\Lumen\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\pipeline\\Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\ExampleMiddleware",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php",
+                      "line": 30,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\pipeline\\Pipeline.php",
+                      "line": 103,
+                      "function": "Laravel\\Lumen\\Routing\\{closure}",
+                      "class": "Laravel\\Lumen\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 423,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 172,
+                      "function": "sendThroughPipeline",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 92,
+                      "function": "dispatch",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 296,
+                      "function": "handle",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 275,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 86,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 44,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 34,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 225,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 182,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 118,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 75,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 51,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+                      "line": 39,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\container\\Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\container\\Container.php",
+                      "line": 651,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\console\\Command.php",
+                      "line": 136,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\symfony\\console\\Command\\Command.php",
+                      "line": 299,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\console\\Command.php",
+                      "line": 121,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\symfony\\console\\Application.php",
+                      "line": 978,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\symfony\\console\\Application.php",
+                      "line": 295,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\symfony\\console\\Application.php",
+                      "line": 167,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\illuminate\\console\\Application.php",
+                      "line": 92,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\vendor\\laravel\\lumen-framework\\src\\Console\\Kernel.php",
+                      "line": 116,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\php\\twit\\artisan",
+                      "line": 35,
+                      "function": "handle",
+                      "class": "Laravel\\Lumen\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE'
+          access-control-allow-credentials: 'true'
+          access-control-max-age: '86400'
+          access-control-allow-headers: 'Content-Type, Authorization, X-Requested-With'
+        description: null
+    responseFields: []

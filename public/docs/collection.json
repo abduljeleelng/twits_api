@@ -1,0 +1,910 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "127.0.0.1"
+        }
+    ],
+    "info": {
+        "name": "Twits Application",
+        "_postman_id": "381f9efc-2f86-4216-967c-805ba7c96091",
+        "description": "documentation for the Twits API",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth User management",
+            "description": "\nAPIs for authenticating users",
+            "item": [
+                {
+                    "name": "api\/auth\/signup",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/signup",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/signup"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"walker.izabella@example.org\",\"password\":\"vizihb\",\"password_confirmation\":\"aliquid\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 409,
+                            "body": "{\"error\":\"The password confirmation does not match.\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/auth\/activate",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/activate",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/activate"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"activationCode\":\"mollitia\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"error\":\"wrong activation code or Invalid link\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/auth\/signin",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/signin",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/signin"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"animi\",\"password\":\"quod\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 409,
+                            "body": "{\"error\":\"The email must be a valid email address.\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/auth\/forgetPassword",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/forgetPassword",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/forgetPassword"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"fugit\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 409,
+                            "body": "{\"error\":\"The email must be a valid email address.\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/auth\/resetPassword",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/resetPassword",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/resetPassword"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"resetToken\":\"velit\",\"password\":\"ut\",\"password_confirmation\":\"tenetur\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 409,
+                            "body": "{\"error\":\"The password confirmation does not match.\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/auth\/signout",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/signout",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/signout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"Token could not be parsed from the request.\",\n    \"exception\": \"Tymon\\\\JWTAuth\\\\Exceptions\\\\JWTException\",\n    \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\tymon\\\\jwt-auth\\\\src\\\\JWTGuard.php\",\n    \"line\": 419,\n    \"trace\": [\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\tymon\\\\jwt-auth\\\\src\\\\JWTGuard.php\",\n            \"line\": 157,\n            \"function\": \"requireToken\",\n            \"class\": \"Tymon\\\\JWTAuth\\\\JWTGuard\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\auth\\\\AuthManager.php\",\n            \"line\": 332,\n            \"function\": \"logout\",\n            \"class\": \"Tymon\\\\JWTAuth\\\\JWTGuard\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\app\\\\Http\\\\Controllers\\\\AuthController.php\",\n            \"line\": 171,\n            \"function\": \"__call\",\n            \"class\": \"Illuminate\\\\Auth\\\\AuthManager\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"signOut\",\n            \"class\": \"App\\\\Http\\\\Controllers\\\\AuthController\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\container\\\\Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\container\\\\Container.php\",\n            \"line\": 651,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 386,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 352,\n            \"function\": \"callControllerCallable\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 326,\n            \"function\": \"callLumenController\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 279,\n            \"function\": \"callControllerAction\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 264,\n            \"function\": \"callActionOnArrayBasedRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 166,\n            \"function\": \"handleFoundRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 48,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\app\\\\Http\\\\Middleware\\\\CorsMiddleware.php\",\n            \"line\": 30,\n            \"function\": \"Laravel\\\\Lumen\\\\Routing\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\CorsMiddleware\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 30,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\app\\\\Http\\\\Middleware\\\\ExampleMiddleware.php\",\n            \"line\": 18,\n            \"function\": \"Laravel\\\\Lumen\\\\Routing\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\ExampleMiddleware\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 30,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\pipeline\\\\Pipeline.php\",\n            \"line\": 103,\n            \"function\": \"Laravel\\\\Lumen\\\\Routing\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 423,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 172,\n            \"function\": \"sendThroughPipeline\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 92,\n            \"function\": \"dispatch\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 296,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 275,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 86,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 44,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 34,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 225,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 182,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 118,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 75,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 51,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Commands\\\\GenerateDocumentation.php\",\n            \"line\": 39,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\container\\\\Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\container\\\\Container.php\",\n            \"line\": 651,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\console\\\\Command.php\",\n            \"line\": 136,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\symfony\\\\console\\\\Command\\\\Command.php\",\n            \"line\": 299,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\console\\\\Command.php\",\n            \"line\": 121,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 978,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 295,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 167,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\illuminate\\\\console\\\\Application.php\",\n            \"line\": 92,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Console\\\\Kernel.php\",\n            \"line\": 116,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\php\\\\twit\\\\artisan\",\n            \"line\": 35,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Likes",
+            "description": "\nAPIs for like services",
+            "item": [
+                {
+                    "name": "api\/like",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/like",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/like"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"twits_id\":\"exercitationem\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"Error in the process\"}",
+                            "name": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Twit",
+            "description": "\nAPIs for twits services",
+            "item": [
+                {
+                    "name": "api\/twit",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/twit",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/twit"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"text\":\"gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"Unauthorized\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/twit",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/twit",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/twit"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"Unauthorized\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/twit\/{id}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/twit\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/twit\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "officia",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"Unauthorized\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/twit\/{id}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/twit\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/twit\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "ut",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"Unauthorized\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/twit\/user\/profile",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/twit\/user\/profile",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/twit\/user\/profile"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"Unauthorized\"}",
+                            "name": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "comment",
+            "description": "\nAPIs for twits comment services",
+            "item": [
+                {
+                    "name": "api\/comment",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comment",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comment"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"text\":\"zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb\",\"twits_id\":\"aut\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "access-control-allow-methods",
+                                    "value": "POST, GET, OPTIONS, PUT, DELETE"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "access-control-max-age",
+                                    "value": "86400"
+                                },
+                                {
+                                    "key": "access-control-allow-headers",
+                                    "value": "Content-Type, Authorization, X-Requested-With"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"Unauthorized\"}",
+                            "name": null
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer"
+    }
+}
