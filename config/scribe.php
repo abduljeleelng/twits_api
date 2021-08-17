@@ -19,7 +19,7 @@ return [
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
      */
-    'base_url' => 'http://127.0.0.1:8000',
+    'base_url' => 'https://tweetis-api.herokuapp.com',
 
     /*
      * Tell Scribe what routes to generate documentation for.

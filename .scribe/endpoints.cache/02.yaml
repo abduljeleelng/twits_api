@@ -24,7 +24,7 @@ endpoints:
         name: text
         description: 'Must not be greater than 147 characters.'
         required: true
-        example: gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh
+        example: misdrlzyrighndzwspjvnqzreiqrjzqxyymdptwvhdptjlyrgthvqusk
         type: string
     responses:
       -
@@ -86,7 +86,7 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: officia
+        example: voluptate
         type: string
     queryParameters: []
     bodyParameters: []
@@ -121,7 +121,7 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: ut
+        example: voluptate
         type: string
     queryParameters: []
     bodyParameters: []

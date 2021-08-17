@@ -67,10 +67,10 @@ You can switch the language used with the tabs at the top right (or from the nav
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://127.0.0.1:8000</code></pre>
+<pre><code class="language-yaml">https://tweetis-api.herokuapp.com</code></pre>
 
         <h1>Authenticating requests</h1>
-<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {token}"</code></strong>.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {token}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by login with your email and password,  <b>token will come along with your details</b>.</p>
 
@@ -90,18 +90,18 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:8000/api/auth/signup" \
+    "https://tweetis-api.herokuapp.com/api/auth/signup" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"walker.izabella@example.org\",
-    \"password\": \"vizihb\",
-    \"password_confirmation\": \"aliquid\"
+    \"email\": \"oberbrunner.izabella@example.org\",
+    \"password\": \"e\",
+    \"password_confirmation\": \"id\"
 }"
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/auth/signup"
+    "https://tweetis-api.herokuapp.com/api/auth/signup"
 );
 
 const headers = {
@@ -110,9 +110,9 @@ const headers = {
 };
 
 let body = {
-    "email": "walker.izabella@example.org",
-    "password": "vizihb",
-    "password_confirmation": "aliquid"
+    "email": "oberbrunner.izabella@example.org",
+    "password": "e",
+    "password_confirmation": "id"
 }
 
 fetch(url, {
@@ -123,15 +123,15 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/auth/signup',
+    'https://tweetis-api.herokuapp.com/api/auth/signup',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'email' =&gt; 'walker.izabella@example.org',
-            'password' =&gt; 'vizihb',
-            'password_confirmation' =&gt; 'aliquid',
+            'email' =&gt; 'oberbrunner.izabella@example.org',
+            'password' =&gt; 'e',
+            'password_confirmation' =&gt; 'id',
         ],
     ]
 );
@@ -141,11 +141,11 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/auth/signup'
+url = 'https://tweetis-api.herokuapp.com/api/auth/signup'
 payload = {
-    "email": "walker.izabella@example.org",
-    "password": "vizihb",
-    "password_confirmation": "aliquid"
+    "email": "oberbrunner.izabella@example.org",
+    "password": "e",
+    "password_confirmation": "id"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -258,16 +258,16 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:8000/api/auth/activate" \
+    "https://tweetis-api.herokuapp.com/api/auth/activate" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"activationCode\": \"mollitia\"
+    \"activationCode\": \"ratione\"
 }"
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/auth/activate"
+    "https://tweetis-api.herokuapp.com/api/auth/activate"
 );
 
 const headers = {
@@ -276,7 +276,7 @@ const headers = {
 };
 
 let body = {
-    "activationCode": "mollitia"
+    "activationCode": "ratione"
 }
 
 fetch(url, {
@@ -287,13 +287,13 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/auth/activate',
+    'https://tweetis-api.herokuapp.com/api/auth/activate',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'activationCode' =&gt; 'mollitia',
+            'activationCode' =&gt; 'ratione',
         ],
     ]
 );
@@ -303,9 +303,9 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/auth/activate'
+url = 'https://tweetis-api.herokuapp.com/api/auth/activate'
 payload = {
-    "activationCode": "mollitia"
+    "activationCode": "ratione"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -402,17 +402,17 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:8000/api/auth/signin" \
+    "https://tweetis-api.herokuapp.com/api/auth/signin" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"animi\",
-    \"password\": \"quod\"
+    \"email\": \"molestiae\",
+    \"password\": \"laboriosam\"
 }"
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/auth/signin"
+    "https://tweetis-api.herokuapp.com/api/auth/signin"
 );
 
 const headers = {
@@ -421,8 +421,8 @@ const headers = {
 };
 
 let body = {
-    "email": "animi",
-    "password": "quod"
+    "email": "molestiae",
+    "password": "laboriosam"
 }
 
 fetch(url, {
@@ -433,14 +433,14 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/auth/signin',
+    'https://tweetis-api.herokuapp.com/api/auth/signin',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'email' =&gt; 'animi',
-            'password' =&gt; 'quod',
+            'email' =&gt; 'molestiae',
+            'password' =&gt; 'laboriosam',
         ],
     ]
 );
@@ -450,10 +450,10 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/auth/signin'
+url = 'https://tweetis-api.herokuapp.com/api/auth/signin'
 payload = {
-    "email": "animi",
-    "password": "quod"
+    "email": "molestiae",
+    "password": "laboriosam"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -558,16 +558,16 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:8000/api/auth/forgetPassword" \
+    "https://tweetis-api.herokuapp.com/api/auth/forgetPassword" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"fugit\"
+    \"email\": \"blanditiis\"
 }"
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/auth/forgetPassword"
+    "https://tweetis-api.herokuapp.com/api/auth/forgetPassword"
 );
 
 const headers = {
@@ -576,7 +576,7 @@ const headers = {
 };
 
 let body = {
-    "email": "fugit"
+    "email": "blanditiis"
 }
 
 fetch(url, {
@@ -587,13 +587,13 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/auth/forgetPassword',
+    'https://tweetis-api.herokuapp.com/api/auth/forgetPassword',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'email' =&gt; 'fugit',
+            'email' =&gt; 'blanditiis',
         ],
     ]
 );
@@ -603,9 +603,9 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/auth/forgetPassword'
+url = 'https://tweetis-api.herokuapp.com/api/auth/forgetPassword'
 payload = {
-    "email": "fugit"
+    "email": "blanditiis"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -702,18 +702,18 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:8000/api/auth/resetPassword" \
+    "https://tweetis-api.herokuapp.com/api/auth/resetPassword" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"resetToken\": \"velit\",
-    \"password\": \"ut\",
-    \"password_confirmation\": \"tenetur\"
+    \"resetToken\": \"eaque\",
+    \"password\": \"sunt\",
+    \"password_confirmation\": \"corporis\"
 }"
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/auth/resetPassword"
+    "https://tweetis-api.herokuapp.com/api/auth/resetPassword"
 );
 
 const headers = {
@@ -722,9 +722,9 @@ const headers = {
 };
 
 let body = {
-    "resetToken": "velit",
-    "password": "ut",
-    "password_confirmation": "tenetur"
+    "resetToken": "eaque",
+    "password": "sunt",
+    "password_confirmation": "corporis"
 }
 
 fetch(url, {
@@ -735,15 +735,15 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/auth/resetPassword',
+    'https://tweetis-api.herokuapp.com/api/auth/resetPassword',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'resetToken' =&gt; 'velit',
-            'password' =&gt; 'ut',
-            'password_confirmation' =&gt; 'tenetur',
+            'resetToken' =&gt; 'eaque',
+            'password' =&gt; 'sunt',
+            'password_confirmation' =&gt; 'corporis',
         ],
     ]
 );
@@ -753,11 +753,11 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/auth/resetPassword'
+url = 'https://tweetis-api.herokuapp.com/api/auth/resetPassword'
 payload = {
-    "resetToken": "velit",
-    "password": "ut",
-    "password_confirmation": "tenetur"
+    "resetToken": "eaque",
+    "password": "sunt",
+    "password_confirmation": "corporis"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -870,12 +870,12 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:8000/api/auth/signout" \
+    "https://tweetis-api.herokuapp.com/api/auth/signout" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/auth/signout"
+    "https://tweetis-api.herokuapp.com/api/auth/signout"
 );
 
 const headers = {
@@ -890,7 +890,7 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/auth/signout',
+    'https://tweetis-api.herokuapp.com/api/auth/signout',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -903,7 +903,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/auth/signout'
+url = 'https://tweetis-api.herokuapp.com/api/auth/signout'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -1356,17 +1356,17 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:8000/api/like" \
+    "https://tweetis-api.herokuapp.com/api/like" \
     --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"twits_id\": \"exercitationem\"
+    \"twits_id\": \"eligendi\"
 }"
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/like"
+    "https://tweetis-api.herokuapp.com/api/like"
 );
 
 const headers = {
@@ -1376,7 +1376,7 @@ const headers = {
 };
 
 let body = {
-    "twits_id": "exercitationem"
+    "twits_id": "eligendi"
 }
 
 fetch(url, {
@@ -1387,14 +1387,14 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/like',
+    'https://tweetis-api.herokuapp.com/api/like',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {token}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'twits_id' =&gt; 'exercitationem',
+            'twits_id' =&gt; 'eligendi',
         ],
     ]
 );
@@ -1404,9 +1404,9 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/like'
+url = 'https://tweetis-api.herokuapp.com/api/like'
 payload = {
-    "twits_id": "exercitationem"
+    "twits_id": "eligendi"
 }
 headers = {
   'Authorization': 'Bearer {token}',
@@ -1517,17 +1517,17 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:8000/api/twit" \
+    "https://tweetis-api.herokuapp.com/api/twit" \
     --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"text\": \"gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh\"
+    \"text\": \"misdrlzyrighndzwspjvnqzreiqrjzqxyymdptwvhdptjlyrgthvqusk\"
 }"
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/twit"
+    "https://tweetis-api.herokuapp.com/api/twit"
 );
 
 const headers = {
@@ -1537,7 +1537,7 @@ const headers = {
 };
 
 let body = {
-    "text": "gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh"
+    "text": "misdrlzyrighndzwspjvnqzreiqrjzqxyymdptwvhdptjlyrgthvqusk"
 }
 
 fetch(url, {
@@ -1548,14 +1548,14 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/twit',
+    'https://tweetis-api.herokuapp.com/api/twit',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {token}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'text' =&gt; 'gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh',
+            'text' =&gt; 'misdrlzyrighndzwspjvnqzreiqrjzqxyymdptwvhdptjlyrgthvqusk',
         ],
     ]
 );
@@ -1565,9 +1565,9 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/twit'
+url = 'https://tweetis-api.herokuapp.com/api/twit'
 payload = {
-    "text": "gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh"
+    "text": "misdrlzyrighndzwspjvnqzreiqrjzqxyymdptwvhdptjlyrgthvqusk"
 }
 headers = {
   'Authorization': 'Bearer {token}',
@@ -1674,13 +1674,13 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:8000/api/twit" \
+    --get "https://tweetis-api.herokuapp.com/api/twit" \
     --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/twit"
+    "https://tweetis-api.herokuapp.com/api/twit"
 );
 
 const headers = {
@@ -1696,7 +1696,7 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/twit',
+    'https://tweetis-api.herokuapp.com/api/twit',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {token}',
@@ -1710,7 +1710,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/twit'
+url = 'https://tweetis-api.herokuapp.com/api/twit'
 headers = {
   'Authorization': 'Bearer {token}',
   'Content-Type': 'application/json',
@@ -1806,13 +1806,13 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:8000/api/twit/officia" \
+    --get "https://tweetis-api.herokuapp.com/api/twit/voluptate" \
     --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/twit/officia"
+    "https://tweetis-api.herokuapp.com/api/twit/voluptate"
 );
 
 const headers = {
@@ -1828,7 +1828,7 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/twit/officia',
+    'https://tweetis-api.herokuapp.com/api/twit/voluptate',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {token}',
@@ -1842,7 +1842,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/twit/officia'
+url = 'https://tweetis-api.herokuapp.com/api/twit/voluptate'
 headers = {
   'Authorization': 'Bearer {token}',
   'Content-Type': 'application/json',
@@ -1947,13 +1947,13 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1:8000/api/twit/ut" \
+    "https://tweetis-api.herokuapp.com/api/twit/voluptate" \
     --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/twit/ut"
+    "https://tweetis-api.herokuapp.com/api/twit/voluptate"
 );
 
 const headers = {
@@ -1969,7 +1969,7 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://127.0.0.1:8000/api/twit/ut',
+    'https://tweetis-api.herokuapp.com/api/twit/voluptate',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {token}',
@@ -1983,7 +1983,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/twit/ut'
+url = 'https://tweetis-api.herokuapp.com/api/twit/voluptate'
 headers = {
   'Authorization': 'Bearer {token}',
   'Content-Type': 'application/json',
@@ -2088,13 +2088,13 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:8000/api/twit/user/profile" \
+    --get "https://tweetis-api.herokuapp.com/api/twit/user/profile" \
     --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/twit/user/profile"
+    "https://tweetis-api.herokuapp.com/api/twit/user/profile"
 );
 
 const headers = {
@@ -2110,7 +2110,7 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/twit/user/profile',
+    'https://tweetis-api.herokuapp.com/api/twit/user/profile',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {token}',
@@ -2124,7 +2124,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/twit/user/profile'
+url = 'https://tweetis-api.herokuapp.com/api/twit/user/profile'
 headers = {
   'Authorization': 'Bearer {token}',
   'Content-Type': 'application/json',
@@ -2224,18 +2224,18 @@ access-control-allow-headers: Content-Type, Authorization, X-Requested-With
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:8000/api/comment" \
+    "https://tweetis-api.herokuapp.com/api/comment" \
     --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"text\": \"zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb\",
-    \"twits_id\": \"aut\"
+    \"text\": \"uqqaxdrkjndvtamcdqnedonwqnsaxfkmzuonomrsgdwqcjbmrjcnlhzpyftgafvjtnsleqotqichpuhpygdtqapbcpyuabortjbutugrqgkzcphmxwtakvizgvczanfva\",
+    \"twits_id\": \"sit\"
 }"
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/comment"
+    "https://tweetis-api.herokuapp.com/api/comment"
 );
 
 const headers = {
@@ -2245,8 +2245,8 @@ const headers = {
 };
 
 let body = {
-    "text": "zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb",
-    "twits_id": "aut"
+    "text": "uqqaxdrkjndvtamcdqnedonwqnsaxfkmzuonomrsgdwqcjbmrjcnlhzpyftgafvjtnsleqotqichpuhpygdtqapbcpyuabortjbutugrqgkzcphmxwtakvizgvczanfva",
+    "twits_id": "sit"
 }
 
 fetch(url, {
@@ -2257,15 +2257,15 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/comment',
+    'https://tweetis-api.herokuapp.com/api/comment',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {token}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'text' =&gt; 'zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb',
-            'twits_id' =&gt; 'aut',
+            'text' =&gt; 'uqqaxdrkjndvtamcdqnedonwqnsaxfkmzuonomrsgdwqcjbmrjcnlhzpyftgafvjtnsleqotqichpuhpygdtqapbcpyuabortjbutugrqgkzcphmxwtakvizgvczanfva',
+            'twits_id' =&gt; 'sit',
         ],
     ]
 );
@@ -2275,10 +2275,10 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/comment'
+url = 'https://tweetis-api.herokuapp.com/api/comment'
 payload = {
-    "text": "zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb",
-    "twits_id": "aut"
+    "text": "uqqaxdrkjndvtamcdqnedonwqnsaxfkmzuonomrsgdwqcjbmrjcnlhzpyftgafvjtnsleqotqichpuhpygdtqapbcpyuabortjbutugrqgkzcphmxwtakvizgvczanfva",
+    "twits_id": "sit"
 }
 headers = {
   'Authorization': 'Bearer {token}',
