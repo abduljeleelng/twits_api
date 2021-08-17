@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://127.0.0.1:8000'
+    url: 'https://tweetis-api.herokuapp.com'
 paths:
   /api/auth/signup:
     post:
@@ -51,15 +51,15 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: walker.izabella@example.org
+                  example: oberbrunner.izabella@example.org
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: vizihb
+                  example: e
                 password_confirmation:
                   type: string
                   description: ''
-                  example: aliquid
+                  example: id
               required:
                 - email
                 - password
@@ -109,7 +109,7 @@ paths:
                 activationCode:
                   type: string
                   description: ''
-                  example: mollitia
+                  example: ratione
               required:
                 - activationCode
       security: []
@@ -157,11 +157,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: animi
+                  example: molestiae
                 password:
                   type: string
                   description: ''
-                  example: quod
+                  example: laboriosam
               required:
                 - email
                 - password
@@ -210,7 +210,7 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: fugit
+                  example: blanditiis
               required:
                 - email
       security: []
@@ -258,15 +258,15 @@ paths:
                 resetToken:
                   type: string
                   description: ''
-                  example: velit
+                  example: eaque
                 password:
                   type: string
                   description: ''
-                  example: ut
+                  example: sunt
                 password_confirmation:
                   type: string
                   description: ''
-                  example: tenetur
+                  example: corporis
               required:
                 - resetToken
                 - password
@@ -988,7 +988,7 @@ paths:
                 twits_id:
                   type: string
                   description: ''
-                  example: exercitationem
+                  example: eligendi
               required:
                 - twits_id
   /api/twit:
@@ -1042,7 +1042,7 @@ paths:
                 text:
                   type: string
                   description: 'Must not be greater than 147 characters.'
-                  example: gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh
+                  example: misdrlzyrighndzwspjvnqzreiqrjzqxyymdptwvhdptjlyrgthvqusk
               required:
                 - text
     get:
@@ -1171,7 +1171,7 @@ paths:
         in: path
         name: id
         description: ''
-        example: officia
+        example: voluptate
         required: true
         schema:
           type: string
@@ -1267,11 +1267,11 @@ paths:
                 text:
                   type: string
                   description: 'Must not be greater than 147 characters.'
-                  example: zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb
+                  example: uqqaxdrkjndvtamcdqnedonwqnsaxfkmzuonomrsgdwqcjbmrjcnlhzpyftgafvjtnsleqotqichpuhpygdtqapbcpyuabortjbutugrqgkzcphmxwtakvizgvczanfva
                 twits_id:
                   type: string
                   description: ''
-                  example: aut
+                  example: sit
               required:
                 - text
                 - twits_id

@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "127.0.0.1"
+            "value": "tweetis-api.herokuapp.com"
         }
     ],
     "info": {
         "name": "Twits Application",
-        "_postman_id": "381f9efc-2f86-4216-967c-805ba7c96091",
+        "_postman_id": "a33790dd-1b22-4d8d-b636-3a48681b84b9",
         "description": "documentation for the Twits API",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -23,11 +23,11 @@
                     "name": "api\/auth\/signup",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/auth\/signup",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/signup"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/auth\/signup"
                         },
                         "method": "POST",
                         "header": [
@@ -42,7 +42,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"walker.izabella@example.org\",\"password\":\"vizihb\",\"password_confirmation\":\"aliquid\"}"
+                            "raw": "{\"email\":\"oberbrunner.izabella@example.org\",\"password\":\"e\",\"password_confirmation\":\"id\"}"
                         },
                         "description": "",
                         "auth": {
@@ -91,11 +91,11 @@
                     "name": "api\/auth\/activate",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/auth\/activate",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/activate"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/auth\/activate"
                         },
                         "method": "POST",
                         "header": [
@@ -110,7 +110,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activationCode\":\"mollitia\"}"
+                            "raw": "{\"activationCode\":\"ratione\"}"
                         },
                         "description": "",
                         "auth": {
@@ -159,11 +159,11 @@
                     "name": "api\/auth\/signin",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/auth\/signin",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/signin"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/auth\/signin"
                         },
                         "method": "POST",
                         "header": [
@@ -178,7 +178,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"animi\",\"password\":\"quod\"}"
+                            "raw": "{\"email\":\"molestiae\",\"password\":\"laboriosam\"}"
                         },
                         "description": "",
                         "auth": {
@@ -227,11 +227,11 @@
                     "name": "api\/auth\/forgetPassword",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/auth\/forgetPassword",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/forgetPassword"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/auth\/forgetPassword"
                         },
                         "method": "POST",
                         "header": [
@@ -246,7 +246,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"fugit\"}"
+                            "raw": "{\"email\":\"blanditiis\"}"
                         },
                         "description": "",
                         "auth": {
@@ -295,11 +295,11 @@
                     "name": "api\/auth\/resetPassword",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/auth\/resetPassword",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/resetPassword"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/auth\/resetPassword"
                         },
                         "method": "POST",
                         "header": [
@@ -314,7 +314,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"resetToken\":\"velit\",\"password\":\"ut\",\"password_confirmation\":\"tenetur\"}"
+                            "raw": "{\"resetToken\":\"eaque\",\"password\":\"sunt\",\"password_confirmation\":\"corporis\"}"
                         },
                         "description": "",
                         "auth": {
@@ -363,11 +363,11 @@
                     "name": "api\/auth\/signout",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/auth\/signout",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/auth\/signout"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/auth\/signout"
                         },
                         "method": "POST",
                         "header": [
@@ -434,11 +434,11 @@
                     "name": "api\/like",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/like",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/like"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/like"
                         },
                         "method": "POST",
                         "header": [
@@ -453,7 +453,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"twits_id\":\"exercitationem\"}"
+                            "raw": "{\"twits_id\":\"eligendi\"}"
                         },
                         "description": ""
                     },
@@ -505,11 +505,11 @@
                     "name": "api\/twit",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/twit",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/twit"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/twit"
                         },
                         "method": "POST",
                         "header": [
@@ -524,7 +524,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"text\":\"gfnerqfhkwohivkhoqgtjhkjemeainfnfstcefxvanzvfsoh\"}"
+                            "raw": "{\"text\":\"misdrlzyrighndzwspjvnqzreiqrjzqxyymdptwvhdptjlyrgthvqusk\"}"
                         },
                         "description": ""
                     },
@@ -570,11 +570,11 @@
                     "name": "api\/twit",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/twit",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/twit"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/twit"
                         },
                         "method": "GET",
                         "header": [
@@ -632,16 +632,16 @@
                     "name": "api\/twit\/{id}",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/twit\/:id",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/twit\/:id",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/twit\/:id",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "officia",
+                                    "value": "voluptate",
                                     "description": ""
                                 }
                             ]
@@ -702,16 +702,16 @@
                     "name": "api\/twit\/{id}",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/twit\/:id",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/twit\/:id",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/twit\/:id",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "ut",
+                                    "value": "voluptate",
                                     "description": ""
                                 }
                             ]
@@ -772,11 +772,11 @@
                     "name": "api\/twit\/user\/profile",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/twit\/user\/profile",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/twit\/user\/profile"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/twit\/user\/profile"
                         },
                         "method": "GET",
                         "header": [
@@ -840,11 +840,11 @@
                     "name": "api\/comment",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/comment",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comment"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/comment"
                         },
                         "method": "POST",
                         "header": [
@@ -859,7 +859,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"text\":\"zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb\",\"twits_id\":\"aut\"}"
+                            "raw": "{\"text\":\"uqqaxdrkjndvtamcdqnedonwqnsaxfkmzuonomrsgdwqcjbmrjcnlhzpyftgafvjtnsleqotqichpuhpygdtqapbcpyuabortjbutugrqgkzcphmxwtakvizgvczanfva\",\"twits_id\":\"sit\"}"
                         },
                         "description": ""
                     },

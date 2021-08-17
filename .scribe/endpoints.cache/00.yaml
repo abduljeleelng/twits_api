@@ -23,19 +23,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: walker.izabella@example.org
+        example: oberbrunner.izabella@example.org
         type: string
       password:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: vizihb
+        example: e
         type: string
       password_confirmation:
         name: password_confirmation
         description: ''
         required: true
-        example: aliquid
+        example: id
         type: string
     responses:
       -
@@ -69,7 +69,7 @@ endpoints:
         name: activationCode
         description: ''
         required: true
-        example: mollitia
+        example: ratione
         type: string
     responses:
       -
@@ -103,13 +103,13 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: animi
+        example: molestiae
         type: string
       password:
         name: password
         description: ''
         required: true
-        example: quod
+        example: laboriosam
         type: string
     responses:
       -
@@ -143,7 +143,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: fugit
+        example: blanditiis
         type: string
     responses:
       -
@@ -177,19 +177,19 @@ endpoints:
         name: resetToken
         description: ''
         required: true
-        example: velit
+        example: eaque
         type: string
       password:
         name: password
         description: ''
         required: true
-        example: ut
+        example: sunt
         type: string
       password_confirmation:
         name: password_confirmation
         description: ''
         required: true
-        example: tenetur
+        example: corporis
         type: string
     responses:
       -

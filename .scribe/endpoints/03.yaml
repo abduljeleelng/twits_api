@@ -22,13 +22,13 @@ endpoints:
         name: text
         description: 'Must not be greater than 147 characters.'
         required: true
-        example: zzqlmtnlqhsaikxyxgvghdicgvzoogpbvhvgbhbhdgjssxjmojkifospfowtecllibb
+        example: uqqaxdrkjndvtamcdqnedonwqnsaxfkmzuonomrsgdwqcjbmrjcnlhzpyftgafvjtnsleqotqichpuhpygdtqapbcpyuabortjbutugrqgkzcphmxwtakvizgvczanfva
         type: string
       twits_id:
         name: twits_id
         description: ''
         required: true
-        example: aut
+        example: sit
         type: string
     responses:
       -
